@@ -134,3 +134,18 @@ git clone https://github.com/<username>/<reponame>.git
         ls                                      *.idx pack-<hash>.pack (archived)
         cat pack-<hash>.pack | git unpack-objects (unzip archive in .git/objects/)
         rm -f pack-<hash>.pack
+    
+## show what is modified (but NOT staged)
+git diff                                        to see changes not added to stage 
+    index <sha1-hash>..<provisional-hash-for-modified-file> 100755
+    @@ -3,6 +3,8 @@                             inserted
+        ^ old-chunk-stats-here          |
+          ^ old-chunk-ends-here         |
+             ^ new-chunk-stats-here     |
+               ^ new-chunk-ends-here    |   means added 2 lines
+    then
+    @@ -11,7 +13,7 @@                                           edited
+        ^ old-chunk-stats-here                          |
+          ^ old-chunk-ends-in-this-number-of-lines      |
+             ^ new-chunk-stats-here                     |
+               ^ new-chunk-in-this-number-of-lines      |   means line edited
