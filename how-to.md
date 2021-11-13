@@ -173,3 +173,30 @@ git checkout master
 git merge <new-branch-name>                         actually moving pointer
 git branch -d <new-branch-name>                     delete as not needed anymore
 
+### OVERVIEW: 3-way merge branches 
+BEFORE
+                base            HEAD
+                v               master
+commit  commit  commit  commit  commit  
+                    |
+                    |-  commit  commit  commit  
+                    |                   feature1
+
+AFTER
+                base            HEAD
+                v               master                 new merge
+commit  commit  commit  commit  commit --------------- commit  
+                    |                                    |
+                    |-  commit  commit  commit ----------- 
+                    |                   feature1
+
+### Example: 3-way merge branches 
+- created <new-branch-name> from master 
+- created commits in <new-branch-name>
+- created commits in master
+git checkout master
+git merge <new-branch-name>                         enter message for new merge commit
+    git log                                         <new-branch-name> pointer is shown
+    git branch -d <new-branch-name>                 delete as not needed anymore (at `git log` <new-branch-name> pointer will disappear)
+
+
