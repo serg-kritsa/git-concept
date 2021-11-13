@@ -24,7 +24,7 @@ git config --list
 ### git layers
     working directory                             >   staging 
                                                         area 
-                                                       (index)  >   remote 
+                                                       (index)  >   local 
                                                                   repository
             <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< changes
 ### git files lifecycle
@@ -33,7 +33,7 @@ git config --list
 
         git add >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                         git add >>>>>>>>>>>>>>>>>>>>>>>>>
-                                                        git push >>>>>>>>
+                                                        git commit >>>>>>
                                         <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< changes
                                         git add >>>>>>>>>
 
