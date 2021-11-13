@@ -199,4 +199,27 @@ git merge <new-branch-name>                         enter message for new merge 
     git log                                         <new-branch-name> pointer is shown
     git branch -d <new-branch-name>                 delete as not needed anymore (at `git log` <new-branch-name> pointer will disappear)
 
+### Example: resolving conflict
+- created <new-branch-name> from master 
+- committed changes in some files in <new-branch-name>
+- committed changes in the same files in master
+git checkout master
+git merge <new-branch-name>                         merge conflict state
+    git status                                      #1: shown files where conflict is
+    git ls-files -s                                 #2: conflicted file printed 3 times (used by git indexes 
+                                                        1->base_version 
+                                                        2->from_current_branch 
+                                                        3->from_merged ). for not in conflict used 0
+    nano filename                                   printed conflicted area w/ <<<<<<<< ============ >>>>>>>> . 
+        HINT: Ctrl+K to toremove whole line if needed                                                   
+        edit file to resolve conflict and continue merging
+    git add <filname>
+    git ls-files -s                                 #2: resolved file should receive index 0 
+    git status                                      All conflicts fixed but you are still merging
+    git commit
+                                                    INFO: .git/MERGE_HEAD keeps the last commit-hash in feature branch         
+        HINT: if vim editor
+            i to enter INSERT mode > edit commit message if needed > Esc to exit INSERT mode
+            :wq to write changes and quit
+    git status                                      nothing to commit, working tree clean
 
