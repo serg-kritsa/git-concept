@@ -67,3 +67,18 @@ git cat-file -s <commit-hash-####>                  object size
 git cat-file -t <commit-hash-####>                  commit
 
 git cat-file -p <tree-hash-####>                    list of blob in tree object
+
+## go to other commit from unmodified state
+git checkout <commit-hash-######>                   move to specified commit
+git checkout <branchname>                           return on the top of branch
+### EXAMPLE: go to the prev commit
+cat .git/HEAD                                       ref: refs/heads/master
+cat .git/refs/heads/master                          sha1-hash
+git cat-file -p <commit-hash-####>                  copy hash of parent commit
+git checkout <commit-hash-######>                   move HEAD pointer to parent commit 
+                                                    cat .git/HEAD returns sha1-hash instead of ref to branch >>> detached HEAD warning
+                                                    cat .git/refs/heads/master remains the same
+                                                    ls -l returns files at that moment
+                                                    git ls-files -s shows files in staged area
+git checkout master                                 returns on the top of branch
+
