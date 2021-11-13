@@ -82,3 +82,32 @@ git checkout <commit-hash-######>                   move HEAD pointer to parent 
                                                     git ls-files -s shows files in staged area
 git checkout master                                 returns on the top of branch
 
+## manage branch 
+git branch                                       list all local branches (current marked w/ '* ')
+git branch <branchname>                          creates new local branch
+git checkout <branchname>                        move to specified branch
+git branch -d <branchname>                       delete specified branch
+git branch -m <old> <new>                        rename specified branch
+
+git checkout -b <branchname>                     move to just created branch (SHORTCUT)
+    git branch <branchname>                          creates new local branch
+    git checkout <branchname>                        move to specified branch
+
+### EXAMPLE: creation
+git branch temp                                  creates temp branch
+    ls .git/refs/heads                           master temp
+    cat .git/refs/heads/master                   sha1
+    cat .git/refs/heads/temp                     sha1 (the same means that points to the same commit)
+    cat .git/HEAD                                ref: refs/heads/master
+git checkout temp                                Switched to branch 'temp'
+    cat .git/HEAD                                ref: refs/heads/temp
+    cat .git/refs/heads/temp                     sha1 (the same means that points to the same commit)
+git checkout master                              Switched to branch 'master'
+    cat .git/HEAD                                ref: refs/heads/master
+git branch -m temp new-temp                      
+git branch                                       * master
+                                                 new-temp
+git checkout new-temp                            Switched to branch 'new-temp'
+git checkout master                              Switched to branch 'master'
+git branch -d new-temp                           Deleted branch new-temp (was #######)
+
