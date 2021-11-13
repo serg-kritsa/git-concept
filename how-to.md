@@ -111,3 +111,15 @@ git checkout new-temp                            Switched to branch 'new-temp'
 git checkout master                              Switched to branch 'master'
 git branch -d new-temp                           Deleted branch new-temp (was #######)
 
+### EXAMPLE: commit
+git checkout -b BR-1                            move to just created branch
+echo Hello, Git from BR-1 > file.txt
+git add file.txt
+git status                                      shown branchname on top
+git commit -m "to BR-1"
+    git status                                  shown branchname on top
+    ls                                          files in working dir
+    git ls-files -s                             files in stage (the same number of files)
+git log                                         all commits
+    git cat-file -p <commit-hash-######>
+        git cat-file -p <parent-commit-hash-######>     commit where branch was created
