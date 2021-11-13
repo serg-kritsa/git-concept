@@ -7,3 +7,6 @@ ls .git
 cat config
 cat description
 cat HEAD
+
+## keep empty folder in git
+mkdir empty-folder && cd empty-folder && touch .gitkeep && cd ..
