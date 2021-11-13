@@ -21,3 +21,21 @@ git config --global user.name <name>
 git config --global user.email <email>
 git config --list
 
+### git layers
+    working directory                             >   staging 
+                                                        area 
+                                                       (index)  >   remote 
+                                                                  repository
+            <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< changes
+### git files lifecycle
+    untracked   >   
+                    unmodified    >   modified    >   staged    >   unmodified
+
+        git add >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                        git add >>>>>>>>>>>>>>>>>>>>>>>>>
+                                                        git push >>>>>>>>
+                                        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< changes
+                                        git add >>>>>>>>>
+
+## see git files
+git status
