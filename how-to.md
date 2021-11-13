@@ -149,3 +149,27 @@ git diff                                        to see changes not added to stag
           ^ old-chunk-ends-in-this-number-of-lines      |
              ^ new-chunk-stats-here                     |
                ^ new-chunk-in-this-number-of-lines      |   means line edited
+
+## merge branches
+### OVERVIEW: fast-forward merge branches 
+BEFORE
+                HEAD
+                master
+commit  commit  commit  
+                    |-  commit  commit  commit  
+                    |                   feature1
+
+AFTER
+commit  commit  commit  
+                    |                   HEAD
+                    |                   master
+                    |-  commit  commit  commit  
+
+### Example: fast-forward merge branches
+- created <new-branch-name> from master 
+- created commit in <new-branch-name>
+- ```IMPORTANT!``` no commits were made in master since creation <new-branch-name>
+git checkout master
+git merge <new-branch-name>                         actually moving pointer
+git branch -d <new-branch-name>                     delete as not needed anymore
+
