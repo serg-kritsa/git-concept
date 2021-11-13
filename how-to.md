@@ -55,3 +55,15 @@ git reset HEAD <filename>
 git rm --cached <filename>
     git ls-files -s                                     not in staged area
     git status                                          is untracked
+
+## commit staged changes
+git commit -m "<description>"
+    git creates commit object, blob object for file and tree object
+### see commit history
+git log
+### explore commit object
+git cat-file -p <commit-hash-####>                  hash of tree object,     hash of parent commit (if NOT first),    author,     committer,     description
+git cat-file -s <commit-hash-####>                  object size
+git cat-file -t <commit-hash-####>                  commit
+
+git cat-file -p <tree-hash-####>                    list of blob in tree object
