@@ -123,3 +123,14 @@ git commit -m "to BR-1"
 git log                                         all commits
     git cat-file -p <commit-hash-######>
         git cat-file -p <parent-commit-hash-######>     commit where branch was created
+
+## clone repository
+git clone https://github.com/<username>/<reponame>.git
+    cd reponame
+    git log
+    ls .git/objects/                             info pack                         
+### unpack cloned repository
+    cd .git/objects/pack                         
+        ls                                      *.idx pack-<hash>.pack (archived)
+        cat pack-<hash>.pack | git unpack-objects (unzip archive in .git/objects/)
+        rm -f pack-<hash>.pack
