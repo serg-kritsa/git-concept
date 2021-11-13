@@ -223,3 +223,27 @@ git merge <new-branch-name>                         merge conflict state
             :wq to write changes and quit
     git status                                      nothing to commit, working tree clean
 
+
+### git layers w/ remote repository
+    working directory                             >   staging 
+                                                        area 
+                                                       (index)  >   local 
+                                                                  repository            >   remote
+                                                                                          repository
+
+        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< changes
+### git files lifecycle
+    untracked   >   
+                    unmodified    >   modified    >   staged    >   unmodified
+
+        git add >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                        git add >>>>>>>>>>>>>>>>>>>>>>>>>
+                                                        git commit >>>>
+                                        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< changes
+                                        git add >>>>>>>>>
+
+                                                                        git push >>>>>>>>>>>>>
+                                                                        <<<<<<<<<<<< git fetch
+        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< git pull
+
+
