@@ -37,5 +37,21 @@ git config --list
                                         <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< changes
                                         git add >>>>>>>>>
 
-## see git files
+
 git status
+## add to stage specified file
+git add <filename>
+### add to stage all untracked/modified files
+git add .
+### see changes in status
+git status
+### see git files
+    find .git/objects -type f                           files w/ relative path
+    git ls-files                                        see staged area as list
+    git ls-files -s                                     see staged area as table
+## unstage not commited file
+git reset HEAD <filename>
+## untrack not commited file using git rm
+git rm --cached <filename>
+    git ls-files -s                                     not in staged area
+    git status                                          is untracked
