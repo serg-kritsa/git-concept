@@ -340,3 +340,10 @@ git branch -a                                       <new-local-branch> not in re
 git checkout master
 git branch -d <new-local-branch>
 
+## show refs from .git/refs/
+git show-ref                                        see all branch refs (SHORTCUT)
+    ls .git/refs/heads
+    ls .git/refs/remote/origin
+git show-ref master                                 see local & remote master refs (SHORTCUT)
+git log
+
