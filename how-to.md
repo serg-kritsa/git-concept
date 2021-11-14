@@ -384,3 +384,38 @@ git show-ref                                        see all branch refs (SHORTCU
 git show-ref master                                 see local & remote master refs (SHORTCUT)
 git log
 
+## format git log
+git help log
+
+git log --pretty=oneline                            <commit-hash-full> <title>
+git log --pretty=oneline --abbrev-commit            <commit-hash-######> <title>
+git log --oneline                                   alias
+git log --oneline -no-decorate                      + without refs
+
+### format line
+git log --pretty=format:'%h'                        <commit-hash-######>
+git log --pretty=format:'%ci'                       <date-ISO 8601>         YYYY-MM-DD hh:mm:ss +-time-zone-dif
+git log --pretty=format:'%cI'                       <date-ISO 8601>         YYYY-MM-DDThh:mm:ss+-time-zone-dif
+git log --pretty=format:'%cs'                       YYYY-MM-DD
+git log --pretty=format:'[%an]'                     <author> 
+git log --pretty=format:'%d'                        <branch-head-ref> 
+git log --pretty=format:'%s'                        <commit-title>
+git log --pretty=format:'%h %ci | %s%d [%an]'       <commit-hash-######> <yyyy-m-d hh:mm> <title> HEAD <author> 
+git log --pretty=format:'%cd' --date=format:'%F %R' <YYYY-MM-DD hh:mm>
+git help config | grep 'Basic colors'
+git log --pretty=format:'%C(yellow) %h'                                                 print in yellow           
+git log --pretty=format:'%C(bold yellow) %h'                                            print in bold yellow           
+git log --pretty=format:'%C(green) %d %C(reset) %s'                                     print param in green then by default                
+git log --pretty=format:'%C(bold #225522) %h'                                           print in rgb-color
+
+git config --global pretty.<my> format:'%C(yellow) %h %C(bold #225522) %d %C(reset) %s'   save format as <my>
+git log --pretty=<my>                                                                     use saved format
+
+git config --global format.pretty <my>              set format by default                                        
+git log                                             used as default <my> in output 
+git log --pretty=medium                             use format by default  
+
+git config --global log.date short
+git config --global log.date relative
+git config --global log.date format:'%F %R'         UTC date as <YYYY-MM-DD hh:mm>
+git config --global log.date format-local:'%F %R'   local date in <YYYY-MM-DD hh:mm>
