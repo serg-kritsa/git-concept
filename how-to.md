@@ -271,7 +271,7 @@ git branch
 
 ## add new branch in remote repository to local one
 git fetch 
-## remove deleted branch in remote repository from local one
+## remove deleted in remote repository branch from local one
 git remote show origin                              deleted remote branch marked as stale
 git remote prune origin                             `* [pruned] origin/`<deleted-branch-remote-repository>
     git branch -vv                                  deleted remote branch marked as gone
@@ -293,4 +293,14 @@ git checkout <remote-branch-name>
 git pull -v
     git ls-files -s                                 see staged files
     git log
+
+## set upstream branch
+- created <new-local-branch>
+- added commit to it
+git branch -vv                                      no corrisponding branch for <new-local-branch>
+git push -v                                         `fatal: The current branch `<new-local-branch>` has no upstream branch.`
+git push -v --set-upstream origin <new-local-branch>
+    git push -v -u origin <new-local-branch>        shortcut. the same             
+    git branch -vv                                  corrisponding branch for <new-local-branch>
+
 
