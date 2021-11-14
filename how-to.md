@@ -419,3 +419,53 @@ git config --global log.date short
 git config --global log.date relative
 git config --global log.date format:'%F %R'         UTC date as <YYYY-MM-DD hh:mm>
 git config --global log.date format-local:'%F %R'   local date in <YYYY-MM-DD hh:mm>
+
+### EXAMPLES #1: git log 
+git log <branch-name>
+git log <branch-name-1> <branch-name-2>             commits from both branches together
+git log <branch-name-1> <branch-name-2> --graph     draw branches
+git log --all --graph                               draw all branches BUT better to use GUI tool
+
+git log <branch-name-1> ^<branch-name-2>            commits from <branch-name-1> after base commit
+git log <branch-name-2>..<branch-name-1>            alias
+git log HEAD..<branch-name>                         commits from <branch-name> not presented in HEAD-branch
+git log ..<branch-name>                             alias
+git log <branch-name>..                             commits from HEAD-branch not presented in <branch-name> 
+git log <branch-name>.. --boundary                  + base commit 
+git log <branch-name-1>...<branch-name-2> --boundary --graph     draw commits in specified branches after base commit that included
+
+NOTE: .. ... in `git diff` have different meaning   
+
+### EXAMPLES #2: git log 
+git log <filename>                                  commits where <filename> was changed
+
+git log <branch-name-2>..<branch-name-1> <filename>                 commits from <branch-name-1> after base commit WHERE <filename> was changed   
+git log <branch-name-2>..<branch-name-1> <dirname-1>  <dirname-2>   commits from <branch-name-1> after base commit WHERE <dirname-1>  <dirname-2> was changed
+
+### EXAMPLES #3: git log w/ regular expression
+git log --grep <word>                               search by <word> in current branch
+git log --grep <word-1>  --grep <word-2>            search by <word-1> OR <word-2> in current branch
+git log --grep <word-1>  --grep <word-2> --all-match           search by <word-1> AND <word-2> in one commit title in current branch
+git log --grep <word> <branch-name>                 search by <word> in <branch-name>
+
+git log --grep '<reg-exp>'                          search by <reg-exp> (default old RegExpr pattern) in current branch
+git log --grep '<reg-exp>' -P                       search by <reg-exp> (Perl pattern RegExpr) in current branch
+git config  --global grep.patternType perl          set Perl pattern RegExpr by default
+
+git log -G<reg-exp>                                 search by <reg-exp> in changes
+git log -G<reg-exp> -p                              search by <reg-exp> in changes AND print found
+git log -G'<reg-exp>' -p                            search by <reg-exp> in changes AND print found
+    example: regexp using special symbols with \ before              git log -G'function handle\(' -p  
+git log -G<reg-exp> -p <filename>                               search by <reg-exp> in changes in <filename> AND print found
+git log -G<reg-exp> -p                              search by <reg-exp> in changes in <filename> AND print found
+
+
+### EXAMPLES #3: git log
+git log -L <start-line>,<end-line> <filename>       search from <start-line> to <end-line> in <filename> 
+git log -L <start-re>,<end-re> <filename>           search from <start-line> to <end-line> in <filename> 
+    example: regexp using special symbols with \ before              git log -L '<head>','<\/head>' index.html  
+
+git log --author=<word>    
+git log --committer=<word>    
+git log --before '<YYYY-MM-DD>'    
+git log --after '<YYYY-MM-DD>'    
