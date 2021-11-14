@@ -150,6 +150,43 @@ git diff                                        to see changes not added to stag
              ^ new-chunk-stats-here                     |
                ^ new-chunk-in-this-number-of-lines      |   means line edited
 
+
+
+## what changed in feature in comparison w/ master
+git diff master <branch-name>                         shown chunk 
+git diff master..<branch-name>                        alisas. output the same 
+git diff master...<branch-name>                       differences from common commit 
+
+git diff <commit-hash-1> <commit-hash-2>              changes between specified commits
+git diff <commit-hash-1>..<commit-hash-2>             alias
+
+git diff                                              changes in working directory in comparison w/ stage  
+git diff HEAD                                         changes in working directory in comparison w/ local repository  
+git diff @                                            alias
+
+### EXAMPLE #1
+- change index.html
+git diff                                              changes in working directory in comparison w/ stage  
+git add index.html
+git diff                                              no changes. all staged
+- change index.html
+git diff                                              NEW changes in working directory in comparison w/ stage  
+### EXAMPLE #2
+git diff --staged                                     changes in stage in comparison w/ local repository. HEAD by default  
+git diff --cached                                     alias
+                                                      in `git commit -v`  added output from `git diff --staged`
+                                                      `git config --global commit.verbose true`
+git diff --staged <commit-hash>                     changes in stage in comparison w/ <commit-hash>  
+### EXAMPLE #3
+git diff <filename>
+    git diff -- <filename>                           add `--` if it's used master, HEAD, etc for filename
+git diff HEAD <filename>
+git diff <branch-name-1> <branch-name-2> <filename>
+git diff <branch-name-1> <branch-name-2> <filename-1> <filename-2>
+git diff --name-only <branch-name-1> <branch-name-2>
+
+
+
 ## merge branches
 ### OVERVIEW: fast-forward merge branches 
 BEFORE
