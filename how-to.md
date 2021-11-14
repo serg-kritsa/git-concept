@@ -304,3 +304,31 @@ git push -v --set-upstream origin <new-local-branch>
     git branch -vv                                  corrisponding branch for <new-local-branch>
 
 
+## remove remote branch tracking
+- created <new-remote-branch>
+git branch -a                                       <new-remote-branch> not shown        
+git fetch                                           `* [new branch]     `<new-remote-branch>`  -> origin/`<new-remote-branch>
+git branch -a                                       <new-remote-branch> not shown locally, shown remotely        
+git checkout <new-remote-branch>                    local branch tracks remote one
+    git branch -a                                   <new-remote-branch> shown locally & remotely        
+    git branch -vv                                  local <new-remote-branch> corresponds remote ones         
+- deleted <new-remote-branch> on github
+    git branch -a                                   <new-remote-branch> shown locally & remotely BUT remote deleted       
+    git branch -vv                                  <new-remote-branch> shown BUT remote deleted
+git fetch -v                                        not shown deleted remote branch
+    git branch -vv                                  <new-remote-branch> STILL tracks BUT remote deleted
+git remote update origin                            `Fetching origin`
+    git branch -vv                                  <new-remote-branch> STILL tracks BUT remote deleted
+git remote update origin --prune                    `* [deleted]     (none)  -> origin/`<new-remote-branch>
+    git branch -vv                                  <new-remote-branch> marked as `gone`
+To delete locally
+    git checkout master
+    git branch -d <new-remote-branch>
+    git branch -vv                                  not shown
+    git remote show origin                          not shown    
+To delete locally forced
+    git branch -D <new-remote-branch>
+    git branch -vv                                  not shown
+    git remote show origin                          not shown    
+
+
