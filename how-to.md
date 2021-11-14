@@ -469,3 +469,8 @@ git log --author=<word>
 git log --committer=<word>    
 git log --before '<YYYY-MM-DD>'    
 git log --after '<YYYY-MM-DD>'    
+
+## git blame
+git blame <filename>
+git blame <filename> --date=short
+git blame <filename> --date=short -L 5,8
