@@ -248,9 +248,9 @@ git merge <new-branch-name>                         merge conflict state
 
 # remote branch management
 ## show remote repositories (cloned)
-git remote                                          origin    
-git remote -v                                       origin https://github.com/<username>/<reponame>.git (fetch)   
-                                                    origin https://github.com/<username>/<reponame>.git (push)   
+git remote                                          `origin`    
+git remote -v                                       `origin https://github.com/`<username>`/`<reponame>`.git (fetch)`
+                                                    `origin https://github.com/`<username>`/`<reponame>`.git (push)`  
 git remote show origin                              detailed branch config info    
 
 ## show branches 
@@ -273,11 +273,24 @@ git branch
 git fetch 
 ## remove deleted branch in remote repository from local one
 git remote show origin                              deleted remote branch marked as stale
-git remote prune origin                             * [pruned] origin/<deleted-branch-remote-repository>
+git remote prune origin                             `* [pruned] origin/`<deleted-branch-remote-repository>
     git branch -vv                                  deleted remote branch marked as gone
     git checkout master
     git branch -d <deleted-branch-remote-repository>
     git branch -vv                                  deleted remote branch not shown
     git remote show origin                          deleted remote branch not shown
 
-    
+## git pull overview
+git branch -vv                                      to make sure that remote branches corresponding local ones
+git fetch                                           updating FETCH_HEAD w/ sha1 of last commits in remote repository for all tracking branches
+          -v                                        `= [up to date]  master  origin/master` ...  
+    cat .git/FETCH_HEAD                             some branch marked as `not-for-merge` 
+git merge FETCH_HEAD
+
+## EXAMPLE: git pull
+- added commit in <remote-branch-name>
+git checkout <remote-branch-name>
+git pull -v
+    git ls-files -s                                 see staged files
+    git log
+
