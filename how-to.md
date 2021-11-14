@@ -331,4 +331,12 @@ To delete locally forced
     git branch -vv                                  not shown
     git remote show origin                          not shown    
 
+## remove remote branch from local terminal
+git checkout -b <new-local-branch>
+git branch -a                                       <new-local-branch> not in remote repository
+git push -u origin <new-local-branch>               <new-local-branch> tracks (corresponding) remote
+git push -d origin <new-local-branch>               `- [deleted]         `<new-local-branch>
+git branch -a                                       <new-local-branch> not in remote repository (just removed)
+git checkout master
+git branch -d <new-local-branch>
 
