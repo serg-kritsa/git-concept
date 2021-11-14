@@ -246,4 +246,38 @@ git merge <new-branch-name>                         merge conflict state
                                                                         <<<<<<<<<<<< git fetch
         <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< git pull
 
+# remote branch management
+## show remote repositories (cloned)
+git remote                                          origin    
+git remote -v                                       origin https://github.com/<username>/<reponame>.git (fetch)   
+                                                    origin https://github.com/<username>/<reponame>.git (push)   
+git remote show origin                              detailed branch config info    
 
+## show branches 
+git branch                                          local 
+git branch -vv                                      show local branches corrisponding remotes
+                                                    after cloning git has master branch only that correspond remote 
+git branch -r                                       remote (also created in github UI )
+git branch -a                                       local & remote (maybe not equal)
+
+### add not existing branch in local repository
+git checkout <remote-branch-from-cloned-repository>
+git branch -vv                                      <remote-branch-from-cloned-repository> will be shown
+
+### delete branch in local repository
+git checkout master
+git branch -d <remote-branch-from-cloned-repository>
+git branch
+
+## add new branch in remote repository to local one
+git fetch 
+## remove deleted branch in remote repository from local one
+git remote show origin                              deleted remote branch marked as stale
+git remote prune origin                             * [pruned] origin/<deleted-branch-remote-repository>
+    git branch -vv                                  deleted remote branch marked as gone
+    git checkout master
+    git branch -d <deleted-branch-remote-repository>
+    git branch -vv                                  deleted remote branch not shown
+    git remote show origin                          deleted remote branch not shown
+
+    
