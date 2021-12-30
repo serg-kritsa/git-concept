@@ -499,3 +499,16 @@ git tag -v <tagname>                                tag info
 
 git push -v --tags                                  tags will be in Release section > Tags tab
 git push -v origin <tagname>                        push only specified tag       
+
+## cherry-pick
+git checkout "<branchname-2>"
+make changes
+git commit -a -m "<commit-message>"
+git log
+copy commit-hash-####
+git checkout "<branchname-1>"
+git cherry-pick <commit-hash-####>                  brand new commit
+
+git cherry-pick --no-commit <commit-hash-####>      move changes only to staged area
+git status -v                                       show changes
+
