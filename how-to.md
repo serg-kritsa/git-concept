@@ -478,3 +478,24 @@ git lg
 git blame <filename>
 git blame <filename> --date=short
 git blame <filename> --date=short -L 5,8
+
+## git tags
+### lightweignt tags
+git tag <tagname>                                   lightweignt is stored in .git/refs/tags
+
+git tag                                             show tags        
+git show <tagname>                                  show detailed tag info        
+ls .git/refs/tags
+cat .git/refs/tags/<tagname>
+git tag -v <tagname>                                NOTE: lightweignt has no additional tag info such as author and date       
+
+### annotated tags
+git tag -a <tagname> -m "<annotated-tag-message>"   stored also in .git/objects
+cat .git/refs/tags/<tagname>                        hash-id
+git cat-file -t <hash>                              'tag'
+ls .git/objects
+git tag -v <tagname>                                tag info     
+    OR git cat-file -p <hash>                       the same
+
+git push -v --tags                                  tags will be in Release section > Tags tab
+git push -v origin <tagname>                        push only specified tag       
