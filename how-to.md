@@ -470,6 +470,10 @@ git log --committer=<word>
 git log --before '<YYYY-MM-DD>'    
 git log --after '<YYYY-MM-DD>'    
 
+### add alias
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
+git lg
+
 ## git blame
 git blame <filename>
 git blame <filename> --date=short
