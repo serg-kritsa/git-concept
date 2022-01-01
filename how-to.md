@@ -512,3 +512,12 @@ git cherry-pick <commit-hash-####>                  brand new commit
 git cherry-pick --no-commit <commit-hash-####>      move changes only to staged area
 git status -v                                       show changes
 
+## stash
+uncommitted changes in <work-branch>
+git stash
+    cat .git/refs/stash
+    git cat-file -p <hash-###>                      temp commit details
+git checkout <branchname>                           allowed w/o loosing data
+git checkout <work-branch>                          go back
+git stash pop                                       applied stored changes in  stash
+                                                    git will delete temporarily stored commit
