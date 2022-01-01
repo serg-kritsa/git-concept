@@ -521,3 +521,9 @@ git checkout <branchname>                           allowed w/o loosing data
 git checkout <work-branch>                          go back
 git stash pop                                       applied stored changes in  stash
                                                     git will delete temporarily stored commit
+
+## rebase
+git checkout <rebased-branchname>
+git rebase <destination-branchname>                 rebased on the top of <destination-branchname>
+git checkout <destination-branchname>
+git merge <rebased-branchname>                      actually fast-forward merge
