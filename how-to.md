@@ -527,3 +527,23 @@ git checkout <rebased-branchname>
 git rebase <destination-branchname>                 rebased on the top of <destination-branchname>
 git checkout <destination-branchname>
 git merge <rebased-branchname>                      actually fast-forward merge
+
+### rebase + squash (interactive)
+git log                                             copy <last-commit-hash> that will be starting point for squash
+git checkout -b <branchname>
+touch file1.txt
+    git add .
+    git commit -m "file1 in  <branchname>"
+touch file2.txt
+    git add .
+    git commit -m "file2 in  <branchname>"
+git log
+git rebase -i <last-commit-hash>                    output like this
+                                                        pick <hash-####> file1 in <branchname>
+                                                        pick <hash-####> file2 in <branchname>
+    i                                               replace `pick` w/ `s` for squashing
+        s #### file2 in <branchname>
+        ESC + :wq
+    git log                                         there will be single commit instead of two
+git checkout master
+    git merge -v <branchname>                       = rebase + squash                    
