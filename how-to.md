@@ -290,6 +290,13 @@ git remote -v                                       `origin https://github.com/`
                                                     `origin https://github.com/`<username>`/`<reponame>`.git (push)`  
 git remote show origin                              detailed branch config info    
 
+## change remote link for origin repo
+git remote -v 
+git remote remove origin 
+git remote -v 
+git remote add origin git@github.com/`<username>`/`<reponame>`.git
+git remote -v 
+
 ## show branches 
 git branch                                          local 
 git branch -vv                                      show local branches corrisponding remotes
@@ -547,3 +554,35 @@ git rebase -i <last-commit-hash>                    output like this
     git log                                         there will be single commit instead of two
 git checkout master
     git merge -v <branchname>                       = rebase + squash                    
+
+## clean credential for push
+git config credential.helper ""
+
+## publish on github.io
+create public repo <account-name>.github.io
+create index.html
+navigate to <account-name>.github.io
+
+## publish react app on github.io
+create public repo <account-name>.github.io
+node -v && npx -v
+npx create-react-app <app-name>
+    cd <app-name>
+    npm i -D gh-pages
+    update package.json
+        "homepage": "<account-name>.github.io/<app-name>/",
+        "scripts":
+            "predeploy": "npm run build",
+            "deploy": "gh-pages -d build"
+    git add .
+    git commit -m "description"
+    git push -u origin master
+    npm run deploy
+navigate to github.com/<account-name>/<app-name>/settings > 'GitHub Pages' section > 'Source' dd'None' > dd'gh-pages branch'
+    navigate to https://<account-name>.github.io/<app-name>/
+
+navigate to github.com/<account-name>/<app-name>/settings > 'GitHub Pages' section > 'Custom domain' ='<domain-url>' > +'Save'
+
+## add ssh-key support for push
+git remote set-url origin git@github.com:<account-name>/<app-name>.git
+git remote -v
