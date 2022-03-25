@@ -294,7 +294,7 @@ git remote show origin                              detailed branch config info
 git remote -v 
 git remote remove origin 
 git remote -v 
-git remote add origin git@github.com/`<username>`/`<reponame>`.git
+git remote add origin git@github.com:`<username>`/`<reponame>`.git
 git remote -v 
 
 ## show branches 
