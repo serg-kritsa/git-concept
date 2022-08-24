@@ -397,7 +397,7 @@ git help log
 git log --pretty=oneline                            <commit-hash-full> <title>
 git log --pretty=oneline --abbrev-commit            <commit-hash-######> <title>
 git log --oneline                                   alias
-git log --oneline -no-decorate                      + without refs
+git log --oneline --no-decorate                      + without refs
 
 ### format line
 git log --pretty=format:'%h'                        <commit-hash-######>
