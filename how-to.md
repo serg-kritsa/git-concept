@@ -468,8 +468,8 @@ git log -G<reg-exp> -p                              search by <reg-exp> in chang
 
 
 ### EXAMPLES #3: git log
-git log -L <start-line>,<end-line> <filename>       search from <start-line> to <end-line> in <filename> 
-git log -L <start-re>,<end-re> <filename>           search from <start-line> to <end-line> in <filename> 
+git log -L <start-line>,<end-line>:<filename>       search from <start-line> to <end-line> in <filename> 
+git log -L <start-re>,<end-re>:<filename>           search from <start-line> to <end-line> in <filename> 
     example: regexp using special symbols with \ before              git log -L '<head>','<\/head>' index.html  
 
 git log --author=<word>    
